@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marketplace/model/bicycle.dart';
+import 'package:marketplace/screen/detail_screen.dart';
 import 'package:marketplace/util/widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -48,7 +49,12 @@ class HomeScreen extends StatelessWidget {
                 shrinkWrap: true,
                 children: bikeList.map((bike) {
                   return InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return DetailScreen(bicycle: bike);
+                      }));
+                    },
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
